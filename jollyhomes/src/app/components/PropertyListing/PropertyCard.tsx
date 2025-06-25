@@ -72,7 +72,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
       whileHover={{ y: -8, transition: { duration: 0.2 } }}
-      className={`bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 w-full max-w-sm mx-auto group ${className}`}
+      className={`bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 w-full max-w-md mx-auto group ${className}`}
     >
       {/* Image Section */}
       <div className="relative overflow-hidden">

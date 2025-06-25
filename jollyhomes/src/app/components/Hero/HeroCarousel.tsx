@@ -36,9 +36,9 @@ const HeroCarousel = () => {
     totalSlides: heroSlides.length,
     onNext: nextSlide
   });
-
+  
   return (
-    <div className="relative w-full h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] xl:h-[85vh] overflow-hidden">
+    <div className="relative w-full h-[30vh] sm:h-[40vh] md:h-[50vh] lg:h-[60vh] xl:h-[65vh] overflow-hidden">
       {/* Background Container */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
         <AnimatePresence mode="wait">

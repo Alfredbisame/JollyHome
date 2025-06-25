@@ -48,7 +48,7 @@ const SlideContent = ({ slide, onButtonHover }: SlideContentProps) => {
           boxShadow: "0 10px 25px rgba(0,0,0,0.3)" 
         }}
         whileTap={{ scale: 0.95 }}
-        className="bg-white text-gray-800 text-sm sm:text-base md:text-lg font-semibold rounded-xl px-8 py-3 sm:px-10 sm:py-4 hover:bg-gray-100 transition-all duration-300 shadow-lg backdrop-blur-sm"
+        className="bg-white text-gray-800 text-sm sm:text-base md:text-lg font-semibold rounded-xl px-8 py-2 cursor-pointer sm:px-10 sm:py-4 hover:bg-gray-100 transition-all duration-300 shadow-lg backdrop-blur-sm"
         onMouseEnter={() => onButtonHover(true)}
         onMouseLeave={() => onButtonHover(false)}
       >

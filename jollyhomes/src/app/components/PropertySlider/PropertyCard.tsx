@@ -104,7 +104,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
           className="flex space-x-3 mb-4"
         >
           <button
-            className={`text-xs font-semibold rounded px-3 py-1 ${getStatusStyles(property.status)}`}
+            className={`text-xs font-semibold rounded px-4 py-1 ${getStatusStyles(property.status)}`}
             disabled={property.status === 'For Sale'}
           >
             {property.status}
@@ -190,7 +190,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
           variants={contentVariants}
           transition={{ duration: 0.4, ease: "easeOut" }}
           onClick={() => onViewDetails(property)}
-          className="w-full bg-emerald-500 text-white text-sm font-semibold rounded px-5 py-3 hover:bg-emerald-600 transition-colors flex items-center justify-center group"
+          className="w-full bg-emerald-500 text-white text-sm font-semibold rounded px-5 py-3 hover:bg-emerald-600 transition-colors flex items-center justify-center cursor-pointer group"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
