@@ -1,7 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useRef } from 'react';
 import { VideoControls } from './VideoControls';
 import { VideoOverlay } from './VideoOverlay';
 import { LoadingSpinner } from './LoadingSpinner';
@@ -30,7 +29,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
     duration,
     volume,
     isMuted,
-    isFullscreen,
+    // isFullscreen,
     showControls,
     isLoading,
     playbackRate,
@@ -42,7 +41,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
     handleProgressChange,
     toggleFullscreen,
     handlePlaybackRateChange,
-    setShowControls
+    // setShowControls
   } = useVideoPlayer(videoRef, containerRef, { autoPlay, muted, loop });
 
   useKeyboardShortcuts({

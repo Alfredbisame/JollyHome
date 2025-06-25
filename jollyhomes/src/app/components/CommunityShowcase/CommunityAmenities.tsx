@@ -18,12 +18,12 @@ interface Amenity {
 }
 
 interface CommunityAmenitiesProps {
-  amenities?: string[];
+  // amenities?: string[];
   className?: string;
 }
 
 const CommunityAmenities: React.FC<CommunityAmenitiesProps> = ({
-  amenities,
+  // amenities,
   className = ""
 }) => {
   const defaultAmenities: Amenity[] = [
@@ -116,7 +116,7 @@ const CommunityAmenities: React.FC<CommunityAmenitiesProps> = ({
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {defaultAmenities.map((amenity, index) => (
+          {defaultAmenities.map((amenity, _index) => (
             <motion.div
               key={amenity.title}
               variants={itemVariants}

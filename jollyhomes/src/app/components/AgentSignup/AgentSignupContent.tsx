@@ -49,7 +49,7 @@ const AgentSignupContent: React.FC = () => {
       <div className="flex items-start gap-2">
         <ChartBarIcon className="w-4 h-4 text-emerald-200 mt-0.5 flex-shrink-0" />
         <p className="text-emerald-100 text-sm font-medium leading-relaxed">
-          We'll help you grow your career and unlock new opportunities in real estate.
+          We&apos;ll help you grow your career and unlock new opportunities in real estate.
         </p>
       </div>
     </motion.div>

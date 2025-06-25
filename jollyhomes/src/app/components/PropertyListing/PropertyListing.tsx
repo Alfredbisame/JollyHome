@@ -259,7 +259,7 @@ const PropertyListing: React.FC<PropertyListingProps> = ({
               </div>
               <h3 className="text-xl font-semibold text-slate-800 mb-2">No Properties Found</h3>
               <p className="text-slate-600 mb-6">
-                We couldn't find any properties matching your criteria. Try adjusting your filters.
+                We couldn&apos;t find any properties matching your criteria. Try adjusting your filters.
               </p>
               <motion.button
                 onClick={() => handleFiltersChange({
@@ -315,7 +315,7 @@ const PropertyListing: React.FC<PropertyListingProps> = ({
         >
           <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 max-w-2xl mx-auto">
             <h3 className="text-2xl font-bold text-slate-800 mb-4">
-              Can't Find What You're Looking For?
+              Can&apos;t Find What You&apos;re Looking For?
             </h3>
             <p className="text-slate-600 mb-6">
               Our team of experts is here to help you find the perfect property that matches your needs and budget.

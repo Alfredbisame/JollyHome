@@ -9,7 +9,6 @@ interface UseAutoPlayProps {
 
 export const useAutoPlay = ({ 
   isPlaying, 
-  totalSlides, 
   onNext, 
   interval = 5000 
 }: UseAutoPlayProps) => {

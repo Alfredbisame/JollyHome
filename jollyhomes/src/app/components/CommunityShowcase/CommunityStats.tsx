@@ -97,7 +97,7 @@ const CommunityStats: React.FC<CommunityStatsProps> = ({
         </motion.div>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-          {stats.map((stat, index) => (
+          {stats.map((stat, _index) => (
             <motion.div
               key={stat.label}
               variants={itemVariants}

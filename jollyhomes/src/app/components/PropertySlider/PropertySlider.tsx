@@ -148,20 +148,20 @@ const PropertySlider: React.FC<PropertySliderProps> = ({
       ease: "easeOut" as const 
     }
   };
-
-  const exitTransition = {
-    x: { 
-      type: "spring" as const, 
-      stiffness: 300, 
-      damping: 30 
-    },
-    opacity: { 
-      duration: 0.3 
-    },
-    scale: { 
-      duration: 0.4 
-    }
-  };
+  
+  // const exitTransition = {
+  //   x: { 
+  //     type: "spring" as const, 
+  //     stiffness: 300, 
+  //     damping: 30 
+  //   },
+  //   opacity: { 
+  //     duration: 0.3 
+  //   },
+  //   scale: { 
+  //     duration: 0.4 
+  //   }
+  // };
 
   return (
     <div 
@@ -251,13 +251,13 @@ const PropertySlider: React.FC<PropertySliderProps> = ({
       </div>
 
       {/* Slide Direction Indicator (Optional - for debugging) */}
-      {process.env.NODE_ENV === 'development' && (
+      {/* {process.env.NODE_ENV === 'development' && (
         <div className="absolute top-4 left-4 z-20">
           <div className="bg-black/30 backdrop-blur-sm text-white px-2 py-1 rounded text-xs">
             Direction: {direction > 0 ? '→' : direction < 0 ? '←' : '•'}
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 };
