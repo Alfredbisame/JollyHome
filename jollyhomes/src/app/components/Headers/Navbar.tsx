@@ -1,8 +1,7 @@
 "use client";
-import { useState } from 'react';
 
 const Navbar = () => {
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    // const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // const toggleMobileMenu = () => {
   //   setIsMobileMenuOpen(!isMobileMenuOpen);

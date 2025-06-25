@@ -98,7 +98,7 @@ const PropertyStats: React.FC<PropertyStatsProps> = ({
       viewport={{ once: true, amount: 0.2 }}
       className={`grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12 ${className}`}
     >
-      {stats.map((stat, _index) => (
+      {stats.map((stat) => (
         <motion.div
           key={stat.label}
           variants={itemVariants}
