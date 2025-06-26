@@ -9,6 +9,7 @@ import SlideContent from './SlideContent';
 import NavigationArrows from './NavigationArrows';
 import DotIndicators from './DotIndicators';
 import ProgressBar from './ProgressBar';
+import Ballpit from './Ballpit';
 
 const HeroCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -39,8 +40,17 @@ const HeroCarousel = () => {
   
   return (
     <div className="relative w-full h-[30vh] sm:h-[40vh] md:h-[50vh] lg:h-[60vh] xl:h-[65vh] overflow-hidden">
+      <div style={{position: 'relative', overflow: 'hidden', minHeight: '700px', maxHeight: '700px', width: '100%'}}>
+      <Ballpit
+        count={150}
+        gravity={0.7}
+        friction={0.8}
+        wallBounce={0.95}
+        followCursor={true}
+      />
+    </div>
       {/* Background Container */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+      <div className="absolute inset-0 bg-white/10 overflow-hidden">
         <AnimatePresence mode="wait">
           <SlideImage 
             slide={heroSlides[currentSlide]} 
