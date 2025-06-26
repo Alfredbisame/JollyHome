@@ -90,7 +90,7 @@ const AboutUsContent: React.FC = () => {
             <Card className="p-6 bg-gradient-to-br from-blue-50 to-emerald-50 border-none">
               <p className="text-gray-700">
                 <span className="font-semibold text-blue-600">Jolly B Homes</span> prides itself on being 
-                one of the finest homebuilders in the region, and it's easy to see why: Jolly B Homes 
+                one of the finest homebuilders in the region, and it&apos;s easy to see why: Jolly B Homes 
                 thoughtfully designs each house with living spaces to be enjoyed by residents of every 
                 age and stage of life. Homebuyers love simple but classy architecture designed with 
                 your comfort in mind.
@@ -99,8 +99,8 @@ const AboutUsContent: React.FC = () => {
 
             <p>
               Residents at <span className="font-semibold text-emerald-600">Oyarifa Cottage</span> will 
-              enjoy a wonderful community, with spring-like warm weather. It's easy to make new friends 
-              at the community's indoor games centre and playground.
+              enjoy a wonderful community, with spring-like warm weather. It&apos;s easy to make new friends 
+              at the community&apos;s indoor games centre and playground.
             </p>
           </div>
 

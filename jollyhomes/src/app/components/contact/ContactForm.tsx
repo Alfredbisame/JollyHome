@@ -90,7 +90,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit, isSubmitting = fals
           Send us a Message
         </h3>
         <p className="text-gray-600 mb-8 text-center md:text-left">
-          We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+          We&apos;d love to hear from you. Send us a message and we&apos;ll respond as soon as possible.
         </p>
       </motion.div>
 
@@ -154,7 +154,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit, isSubmitting = fals
             type="text"
             value={formData.subject}
             onChange={handleChange}
-            placeholder="What's this about?"
+            placeholder="What&apos;s this about?"
           />
           {errors.subject && (
             <motion.span 

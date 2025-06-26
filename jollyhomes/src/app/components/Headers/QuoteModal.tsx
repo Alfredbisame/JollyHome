@@ -255,7 +255,7 @@ const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
                     <div>
                       <h4 className="font-medium text-gray-900 mb-1">What happens next?</h4>
                       <ul className="text-sm text-gray-600 space-y-1">
-                        <li>• We'll review your request within 24 hours</li>
+                        <li>• We&apos;ll review your request within 24 hours</li>
                         <li>• Schedule a free consultation call</li>
                         <li>• Provide a detailed project estimate</li>
                         <li>• Discuss timeline and next steps</li>

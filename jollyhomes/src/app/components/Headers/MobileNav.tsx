@@ -155,7 +155,7 @@ const MobileNav: React.FC<MobileNavProps> = ({
                 className="flex-1 px-6 py-8"
               >
                 <ul className="space-y-2">
-                  {navItems.map((item, index) => (
+                  {navItems.map((item) => (
                     <motion.li key={item.href} variants={itemVariants}>
                       <Link
                         href={item.href}

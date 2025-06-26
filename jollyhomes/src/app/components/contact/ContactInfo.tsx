@@ -97,7 +97,7 @@ const ContactInfo: React.FC<ContactInfoProps> = ({ items }) => {
           Jolly B Ghana
         </p>
         <p className="text-gray-500 text-sm mt-2">
-          We're here to help you find your dream home. Reach out to us through any of the channels below.
+          We&apos;re here to help you find your dream home. Reach out to us through any of the channels below.
         </p>
       </motion.div>
 
