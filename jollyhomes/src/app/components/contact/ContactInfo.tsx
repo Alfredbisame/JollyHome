@@ -102,7 +102,7 @@ const ContactInfo: React.FC<ContactInfoProps> = ({ items }) => {
       </motion.div>
 
       <div className="space-y-6">
-        {items.map((item, index) => (
+        {items.map((item) => (
           <motion.div
             key={item.id}
             variants={itemVariants}
