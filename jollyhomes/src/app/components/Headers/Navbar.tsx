@@ -31,7 +31,7 @@ const Navbar = () => {
             <ul className="flex space-x-8 text-sm font-medium text-[#2B3A67]">
               <li>
                 <a 
-                  href="#" 
+                  href="/" 
                   className="relative py-2 px-1 hover:text-[#1f5a0e] transition-colors duration-200 group"
                 >
                   Home
@@ -40,7 +40,7 @@ const Navbar = () => {
               </li>
               <li>
                 <a 
-                  href="#" 
+                  href="/gallery" 
                   className="relative py-2 px-1 hover:text-[#1f5a0e] transition-colors duration-200 group"
                 >
                   Gallery
@@ -49,7 +49,7 @@ const Navbar = () => {
               </li>
               <li>
                 <a 
-                  href="#" 
+                  href="/contact" 
                   className="relative py-2 px-1 hover:text-[#1f5a0e] transition-colors duration-200 group"
                 >
                   Contact
@@ -58,7 +58,7 @@ const Navbar = () => {
               </li>
               <li>
                 <a 
-                  href="#" 
+                  href="/about" 
                   className="relative py-2 px-1 hover:text-[#1f5a0e] transition-colors duration-200 group"
                 >
                   About us
