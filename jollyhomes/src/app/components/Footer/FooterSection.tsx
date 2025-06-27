@@ -5,7 +5,7 @@ import { itemVariants } from './animations';
 
 interface FooterSectionProps {
   title: string;
-  links: string[];
+  links: { label: string; href: string }[];
   isUppercase?: boolean;
   delay?: number;
 }
@@ -44,11 +44,11 @@ const FooterSection: React.FC<FooterSectionProps> = ({
             viewport={{ once: true }}
           >
             <motion.a
-              href="#"
+              href={link.href}
               className="text-sm hover:text-white transition-colors duration-300 cursor-pointer block"
               whileHover={{ x: 5 }}
             >
-              {link}
+              {link.label}
             </motion.a>
           </motion.li>
         ))}

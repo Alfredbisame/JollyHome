@@ -1,5 +1,4 @@
 'use client';
-
 import { motion } from 'framer-motion';
 import { ContactInfo } from './ContactInfo';
 import { FooterSection } from './FooterSection';
@@ -7,17 +6,31 @@ import { Newsletter } from './Newsletter';
 import { footerVariants, containerVariants } from './animations';
 import { useCurrentYear } from '../../Hooks/useCurrentYear';
 
-
 const Footer: React.FC = () => {
-  const aboutLinks = ['About us', 'Contact us', 'Terms & Conditions'];
-  const propertyLinks = ['All properties', 'Houses for sale', 'Houses for rent'];
-  const newsLinks = ['Latest news', 'House architecture', 'House design', 'Building materials'];
+  const aboutLinks = [
+    { label: 'About us', href: '/about' },
+    { label: 'Contact us', href: '/contact' },
+    { label: 'Terms & Conditions', href: '/terms' }
+  ];
   
+  const propertyLinks = [
+    { label: 'All properties', href: '/properties' },
+    { label: 'Houses for sale', href: '/properties/sale' },
+    { label: 'Houses for rent', href: '/properties/rent' }
+  ];
+  
+  const newsLinks = [
+    { label: 'Latest news', href: '/news' },
+    { label: 'House architecture', href: '/news/architecture' },
+    { label: 'House design', href: '/news/design' },
+    { label: 'Building materials', href: '/news/materials' }
+  ];
+
   // Get current year using custom hook
   const currentYear = useCurrentYear();
 
   return (
-    <motion.footer 
+    <motion.footer
       className="bg-[#2c314b] text-[#8a8f9f]"
       variants={footerVariants}
       initial="hidden"
@@ -25,7 +38,7 @@ const Footer: React.FC = () => {
       viewport={{ once: true, amount: 0.2 }}
     >
       <div className="max-w-7xl mx-auto px-6 py-16">
-        <motion.div 
+        <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12"
           variants={containerVariants}
         >
@@ -36,8 +49,8 @@ const Footer: React.FC = () => {
 
           {/* About Section */}
           <div className="lg:col-span-1">
-            <FooterSection 
-              title="About" 
+            <FooterSection
+              title="About"
               links={aboutLinks}
               delay={0.1}
             />
@@ -45,8 +58,8 @@ const Footer: React.FC = () => {
 
           {/* Properties Section */}
           <div className="lg:col-span-1">
-            <FooterSection 
-              title="More Information" 
+            <FooterSection
+              title="More Information"
               links={propertyLinks}
               isUppercase
               delay={0.2}
@@ -55,8 +68,8 @@ const Footer: React.FC = () => {
 
           {/* News Section */}
           <div className="lg:col-span-1">
-            <FooterSection 
-              title="News" 
+            <FooterSection
+              title="News"
               links={newsLinks}
               isUppercase
               delay={0.3}
@@ -70,7 +83,7 @@ const Footer: React.FC = () => {
         </motion.div>
 
         {/* Bottom Section */}
-        <motion.div 
+        <motion.div
           className="mt-12 pt-8 border-t border-[#3a4056] text-center"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
