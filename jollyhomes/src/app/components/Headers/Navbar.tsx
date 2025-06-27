@@ -2,13 +2,16 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 import MobileNav from './MobileNav';
 import QuoteModal from './QuoteModal';
+import { IoCall } from 'react-icons/io5';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
+  const pathname = usePathname();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -32,6 +35,13 @@ const Navbar = () => {
     { href: '/contact', label: 'Contact' },
     { href: '/about', label: 'About us' },
   ];
+
+  const isActiveLink = (href: string) => {
+    if (href === '/') {
+      return pathname === '/';
+    }
+    return pathname.startsWith(href);
+  };
 
   return (
     <>
@@ -60,17 +70,30 @@ const Navbar = () => {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center">
               <ul className="flex space-x-8 text-sm font-medium text-[#2B3A67]">
-                {navItems.map((item) => (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      className="relative py-2 px-1 hover:text-[#1f5a0e] transition-colors duration-200 group"
-                    >
-                      {item.label}
-                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#1f5a0e] group-hover:w-full transition-all duration-300"></span>
-                    </Link>
-                  </li>
-                ))}
+                {navItems.map((item) => {
+                  const isActive = isActiveLink(item.href);
+                  return (
+                    <li key={item.href}>
+                      <Link
+                        href={item.href}
+                        className={`relative py-2 px-1 transition-colors duration-200 group ${
+                          isActive 
+                            ? 'text-[#1f5a0e] font-semibold' 
+                            : 'hover:text-[#1f5a0e]'
+                        }`}
+                      >
+                        {item.label}
+                        <span 
+                          className={`absolute bottom-0 left-0 h-0.5 bg-[#1f5a0e] transition-all duration-300 ${
+                            isActive 
+                              ? 'w-full' 
+                              : 'w-0 group-hover:w-full'
+                          }`}
+                        ></span>
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
 
@@ -81,9 +104,9 @@ const Navbar = () => {
                 whileHover={{ scale: 1.02, y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={openQuoteModal}
-                className="hidden md:flex items-center space-x-2 bg-[#1f5a0e] hover:bg-[#2d7a15] text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 shadow-md hover:shadow-lg"
+                className="hidden md:flex items-center space-x-2 bg-[#1f5a0e] hover:bg-[#2d7a15] text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 shadow-md hover:shadow-lg cursor-pointer"
               >
-                <i className="fas fa-phone text-sm"></i>
+                <IoCall className="text-sm" />
                 <span>Get Quote</span>
               </motion.button>
 
@@ -131,6 +154,7 @@ const Navbar = () => {
         onClose={closeMobileMenu}
         navItems={navItems}
         onQuoteClick={openQuoteModal}
+        currentPath={pathname}
       />
 
       {/* Quote Modal */}

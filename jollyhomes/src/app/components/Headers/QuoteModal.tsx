@@ -2,6 +2,10 @@
 
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import { CiCalculator1 } from 'react-icons/ci';
+import { GiInfo } from 'react-icons/gi';
+import { IoIosSend } from 'react-icons/io';
+import { IoClose } from 'react-icons/io5';
 
 interface QuoteModalProps {
   isOpen: boolean;
@@ -118,14 +122,14 @@ const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
               <div className="relative bg-gradient-to-r from-[#1f5a0e] to-[#2d7a15] p-6 rounded-t-2xl">
                 <button
                   onClick={onClose}
-                  className="absolute top-4 right-4 w-8 h-8 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-colors duration-200"
+                  className="absolute top-4 right-4 w-8 h-8 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-colors duration-200 cursor-pointer"
                 >
-                  <i className="fas fa-times text-white text-sm"></i>
+                   <IoClose className="text-white text-sm" />
                 </button>
                 
                 <div className="flex items-center space-x-4">
                   <div className="bg-white/20 p-3 rounded-xl">
-                    <i className="fas fa-calculator text-white text-xl"></i>
+                    <CiCalculator1 size={20}  className="text-white text-xl"></CiCalculator1>
                   </div>
                   <div>
                     <h2 className="text-2xl font-bold text-white">Get Your Quote</h2>
@@ -139,7 +143,7 @@ const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
                 {/* Personal Information */}
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="name" className="block text-sm font-semibold text-gray-800 mb-2">
                       Full Name *
                     </label>
                     <input
@@ -149,13 +153,13 @@ const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1f5a0e] focus:border-transparent transition-all duration-200"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1f5a0e] focus:border-transparent transition-all duration-200 text-gray-900 placeholder:text-gray-600 placeholder:font-medium"
                       placeholder="Enter your full name"
                     />
                   </div>
                   
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="email" className="block text-sm font-semibold text-gray-800 mb-2">
                       Email Address *
                     </label>
                     <input
@@ -165,15 +169,15 @@ const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1f5a0e] focus:border-transparent transition-all duration-200"
-                      placeholder="Enter your email"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1f5a0e] focus:border-transparent transition-all duration-200 text-gray-900 placeholder:text-gray-600 placeholder:font-medium"
+                      placeholder="Enter your email address"
                     />
                   </div>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="phone" className="block text-sm font-semibold text-gray-800 mb-2">
                       Phone Number *
                     </label>
                     <input
@@ -183,13 +187,13 @@ const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
                       value={formData.phone}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1f5a0e] focus:border-transparent transition-all duration-200"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1f5a0e] focus:border-transparent transition-all duration-200 text-gray-900 placeholder:text-gray-600 placeholder:font-medium"
                       placeholder="Enter your phone number"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="projectType" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="projectType" className="block text-sm font-semibold text-gray-800 mb-2">
                       Project Type *
                     </label>
                     <select
@@ -198,20 +202,20 @@ const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
                       value={formData.projectType}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1f5a0e] focus:border-transparent transition-all duration-200"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1f5a0e] focus:border-transparent transition-all duration-200 text-gray-900"
                     >
-                      <option value="">Select project type</option>
-                      <option value="new-construction">New Construction</option>
-                      <option value="renovation">Home Renovation</option>
-                      <option value="extension">Home Extension</option>
-                      <option value="custom-design">Custom Design</option>
-                      <option value="consultation">Consultation Only</option>
+                      <option value="" className="text-gray-600">Select project type</option>
+                      <option value="new-construction" className="text-gray-900">New Construction</option>
+                      <option value="renovation" className="text-gray-900">Home Renovation</option>
+                      <option value="extension" className="text-gray-900">Home Extension</option>
+                      <option value="custom-design" className="text-gray-900">Custom Design</option>
+                      <option value="consultation" className="text-gray-900">Consultation Only</option>
                     </select>
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="budget" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="budget" className="block text-sm font-semibold text-gray-800 mb-2">
                     Estimated Budget
                   </label>
                   <select
@@ -219,20 +223,20 @@ const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
                     name="budget"
                     value={formData.budget}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1f5a0e] focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1f5a0e] focus:border-transparent transition-all duration-200 text-gray-900"
                   >
-                    <option value="">Select budget range</option>
-                    <option value="under-50k">Under $50,000</option>
-                    <option value="50k-100k">$50,000 - $100,000</option>
-                    <option value="100k-250k">$100,000 - $250,000</option>
-                    <option value="250k-500k">$250,000 - $500,000</option>
-                    <option value="500k-1m">$500,000 - $1,000,000</option>
-                    <option value="over-1m">Over $1,000,000</option>
+                    <option value="" className="text-gray-600">Select budget range</option>
+                    <option value="under-50k" className="text-gray-900">Under $50,000</option>
+                    <option value="50k-100k" className="text-gray-900">$50,000 - $100,000</option>
+                    <option value="100k-250k" className="text-gray-900">$100,000 - $250,000</option>
+                    <option value="250k-500k" className="text-gray-900">$250,000 - $500,000</option>
+                    <option value="500k-1m" className="text-gray-900">$500,000 - $1,000,000</option>
+                    <option value="over-1m" className="text-gray-900">Over $1,000,000</option>
                   </select>
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="message" className="block text-sm font-semibold text-gray-800 mb-2">
                     Project Details
                   </label>
                   <textarea
@@ -241,7 +245,7 @@ const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
                     value={formData.message}
                     onChange={handleInputChange}
                     rows={4}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1f5a0e] focus:border-transparent transition-all duration-200 resize-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1f5a0e] focus:border-transparent transition-all duration-200 resize-none text-gray-900 placeholder:text-gray-600 placeholder:font-medium"
                     placeholder="Tell us more about your project, timeline, specific requirements, etc."
                   />
                 </div>
@@ -250,11 +254,11 @@ const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
                 <div className="bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 rounded-lg p-4">
                   <div className="flex items-start space-x-3">
                     <div className="bg-[#1f5a0e] p-2 rounded-full flex-shrink-0">
-                      <i className="fas fa-info text-white text-xs"></i>
+                      <GiInfo size={20} className="text-white text-xs"></GiInfo>
                     </div>
                     <div>
-                      <h4 className="font-medium text-gray-900 mb-1">What happens next?</h4>
-                      <ul className="text-sm text-gray-600 space-y-1">
+                      <h4 className="font-semibold text-gray-900 mb-1">What happens next?</h4>
+                      <ul className="text-sm text-gray-700 space-y-1 font-medium">
                         <li>• We&apos;ll review your request within 24 hours</li>
                         <li>• Schedule a free consultation call</li>
                         <li>• Provide a detailed project estimate</li>
@@ -269,16 +273,16 @@ const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
                   <button
                     type="button"
                     onClick={onClose}
-                    className="flex-1 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors duration-200 font-medium"
+                    className="flex-1 px-6 py-3 border border-gray-300 text-gray-800 rounded-lg hover:bg-gray-50 transition-colors duration-200 font-semibold cursor-pointer"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
-                    className="flex-1 px-6 py-3 bg-gradient-to-r from-[#1f5a0e] to-[#2d7a15] text-white rounded-lg hover:from-[#2d7a15] hover:to-[#1f5a0e] transition-all duration-200 font-medium shadow-lg hover:shadow-xl transform hover:scale-[1.02]"
+                    className="flex-1 px-6 py-3 bg-gradient-to-r from-[#1f5a0e] to-[#2d7a15] text-white rounded-lg hover:from-[#2d7a15] hover:to-[#1f5a0e] transition-all duration-200 font-semibold shadow-lg hover:shadow-xl transform hover:scale-[1.02] cursor-pointer flex items-center justify-center"
                   >
-                    <i className="fas fa-paper-plane mr-2"></i>
                     Send Quote Request
+                    <IoIosSend className="text-lg ml-2" />
                   </button>
                 </div>
               </form>
