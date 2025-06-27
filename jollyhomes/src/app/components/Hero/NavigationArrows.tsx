@@ -66,7 +66,7 @@ const NavigationArrows = ({ onPrevious, onNext, onHover }: NavigationArrowsProps
         <div className="relative">
           {/* Outer ring */}
           <motion.div
-            className="w-16 h-16 sm:w-18 sm:h-18 rounded-full border-2 border-white/30 flex items-center justify-center backdrop-blur-sm bg-gradient-to-br from-white/10 to-white/5 shadow-2xl"
+            className="w-16 h-16 sm:w-18 sm:h-18 rounded-full border-2 border-white/50 flex items-center justify-center backdrop-blur-sm bg-gradient-to-br from-white/30 to-white/20 shadow-2xl"
             whileHover={{
               borderColor: "rgba(255, 255, 255, 0.6)",
               background: "linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1))",
@@ -76,7 +76,7 @@ const NavigationArrows = ({ onPrevious, onNext, onHover }: NavigationArrowsProps
           >
             {/* Inner circle */}
             <motion.div
-              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/20 flex items-center justify-center text-white"
+              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/20 flex items-center justify-center text-green-500"
               whileHover={{ 
                 backgroundColor: "rgba(255, 255, 255, 0.3)",
                 scale: 1.1
@@ -134,7 +134,7 @@ const NavigationArrows = ({ onPrevious, onNext, onHover }: NavigationArrowsProps
           >
             {/* Inner circle */}
             <motion.div
-              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/20 flex items-center justify-center text-white"
+              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/20 flex items-center justify-center text-green-500"
               whileHover={{ 
                 backgroundColor: "rgba(255, 255, 255, 0.3)",
                 scale: 1.1
