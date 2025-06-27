@@ -9,7 +9,6 @@ import SlideContent from './SlideContent';
 import NavigationArrows from './NavigationArrows';
 import DotIndicators from './DotIndicators';
 import ProgressBar from './ProgressBar';
-import Ballpit from './Iridescence';
 import Iridescence from './Iridescence';
 
 const HeroCarousel = () => {
