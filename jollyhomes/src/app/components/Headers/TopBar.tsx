@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDownIcon, HeartIcon } from '@heroicons/react/24/outline';
+import WishListButton from '@/app/components/WishList/WishListButton';
 
 const TopBar = () => {
   const [selectedCurrency, setSelectedCurrency] = useState('GHS');
@@ -55,12 +56,7 @@ const TopBar = () => {
     <div className="bg-gradient-to-r from-[#1f5a0e] to-[#2d7a15] text-white text-sm shadow-sm relative z-50">
       <div className="max-w-screen-xl mx-auto flex justify-end items-center h-12 px-4 space-x-6">
         {/* Wishlist */}
-        <div className="flex items-center space-x-2 cursor-pointer select-none group transition-all duration-200 hover:bg-white/10 px-3 py-2 rounded-md">
-           <HeartIcon className="w-5 h-5 text-blue-300 group-hover:text-blue-200 transition-colors duration-200" />
-          <span className="font-medium group-hover:text-gray-100 transition-colors duration-200">
-            Wishlist (0)
-          </span>
-        </div>
+        <WishListButton />
 
         {/* Currency Selector with Dropdown */}
         <div className="relative z-[9999]" ref={dropdownRef}>

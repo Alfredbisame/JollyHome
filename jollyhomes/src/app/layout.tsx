@@ -4,6 +4,7 @@ import "./globals.css";
 import TopBar from "./components/Headers/TopBar";
 import Navbar from "./components/Headers/Navbar";
 import { Footer } from "./components/Footer";
+import { WishListProvider } from '@/app/components/WishList/WishListContext';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,10 +31,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <TopBar />
-        <Navbar />
-        {children}
-        <Footer />
+        <WishListProvider>
+          <TopBar />
+          <Navbar />
+          {children}
+          <Footer />
+        </WishListProvider>
       </body>
     </html>
   );
