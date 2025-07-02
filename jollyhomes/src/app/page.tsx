@@ -9,6 +9,7 @@ import { CommunityShowcase } from './components/CommunityShowcase';
 import { oyarifaCottageData } from './components/CommunityShowcase/data/communities';
 import AgentSignupBanner from './components/AgentSignup/AgentSignupBanner';
 import AddToWishListButton from './components/WishList/AddToWishListButton';
+import Image from 'next/image';
 
 const HomePage = () => {
   const handleLearnMore = () => {
@@ -78,10 +79,13 @@ const HomePage = () => {
             ].map((property) => (
               <div key={property.id} className="bg-white rounded-lg shadow-md p-4">
                 <div className="relative mb-4">
-                  <img 
+                  <Image 
                     src={property.image} 
                     alt={property.title}
+                    width={400}
+                    height={192}
                     className="w-full h-48 object-cover rounded-lg"
+                    priority={property.id === "1"}
                   />
                   <div className="absolute top-2 right-2">
                     <AddToWishListButton item={property} />
