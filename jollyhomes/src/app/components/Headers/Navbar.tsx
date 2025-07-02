@@ -112,36 +112,74 @@ const Navbar = () => {
 
               {/* Mobile Menu Button */}
               <motion.button 
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={toggleMobileMenu}
-                className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200 relative z-50"
+                className="md:hidden p-3 rounded-xl hover:bg-gray-50 transition-all duration-300 relative z-50 group"
               >
                 <motion.div
                   animate={isMobileMenuOpen ? "open" : "closed"}
-                  className="w-6 h-6 flex flex-col justify-center items-center"
+                  className="w-6 h-6 flex flex-col justify-center items-center relative"
                 >
-                  <motion.span
+                  {/* Menu Icon - Three Dots */}
+                  <motion.div
                     variants={{
-                      closed: { rotate: 0, y: 0 },
-                      open: { rotate: 45, y: 6 }
+                      closed: { 
+                        opacity: 1,
+                        scale: 1
+                      },
+                      open: { 
+                        opacity: 0,
+                        scale: 0
+                      }
                     }}
-                    className="w-6 h-0.5 bg-[#2B3A67] block absolute"
-                  />
-                  <motion.span
+                    transition={{ duration: 0.2 }}
+                    className="flex flex-col space-y-1.5"
+                  >
+                    <div className="w-1.5 h-1.5 bg-[#1f5a0e] rounded-full group-hover:bg-[#2d7a15] transition-colors duration-200"></div>
+                    <div className="w-1.5 h-1.5 bg-[#1f5a0e] rounded-full group-hover:bg-[#2d7a15] transition-colors duration-200"></div>
+                    <div className="w-1.5 h-1.5 bg-[#1f5a0e] rounded-full group-hover:bg-[#2d7a15] transition-colors duration-200"></div>
+                  </motion.div>
+                  
+                  {/* Close Icon - X */}
+                  <motion.div
                     variants={{
-                      closed: { opacity: 1 },
-                      open: { opacity: 0 }
+                      closed: { 
+                        opacity: 0,
+                        scale: 0,
+                        rotate: -90
+                      },
+                      open: { 
+                        opacity: 1,
+                        scale: 1,
+                        rotate: 0
+                      }
                     }}
-                    className="w-6 h-0.5 bg-[#2B3A67] block absolute"
-                  />
-                  <motion.span
-                    variants={{
-                      closed: { rotate: 0, y: 0 },
-                      open: { rotate: -45, y: -6 }
+                    transition={{ 
+                      type: "spring", 
+                      stiffness: 300, 
+                      damping: 20 
                     }}
-                    className="w-6 h-0.5 bg-[#2B3A67] block absolute"
-                  />
+                    className="absolute inset-0 flex items-center justify-center"
+                  >
+                    <div className="relative w-5 h-5">
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-5 h-0.5 bg-[#1f5a0e] rounded-full rotate-45 group-hover:bg-[#2d7a15] transition-colors duration-200"></div>
+                      </div>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-5 h-0.5 bg-[#1f5a0e] rounded-full -rotate-45 group-hover:bg-[#2d7a15] transition-colors duration-200"></div>
+                      </div>
+                    </div>
+                  </motion.div>
                 </motion.div>
+                
+                {/* Ripple effect */}
+                <motion.div
+                  className="absolute inset-0 rounded-xl bg-[#1f5a0e]/10"
+                  initial={{ scale: 0, opacity: 0 }}
+                  animate={isMobileMenuOpen ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                />
               </motion.button>
             </div>
           </div>
