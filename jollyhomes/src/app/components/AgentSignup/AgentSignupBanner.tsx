@@ -25,15 +25,6 @@ const AgentSignupBanner: React.FC<AgentSignupBannerProps> = ({
     }
   };
 
-  const handleSignupClick = () => {
-    if (onSignupClick) {
-      onSignupClick();
-    } else {
-      // Default behavior - could open a modal, navigate to signup page, etc.
-      console.log('Agent signup clicked');
-    }
-  };
-
   return (
     <motion.section
       variants={containerVariants}
@@ -52,7 +43,7 @@ const AgentSignupBanner: React.FC<AgentSignupBannerProps> = ({
       <div className="relative max-w-7xl mx-auto px-6 py-8">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
           <AgentSignupContent />
-          <AgentSignupButton onClick={handleSignupClick} />
+          <AgentSignupButton />
         </div>
       </div>
     </motion.section>
