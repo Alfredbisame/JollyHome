@@ -14,9 +14,9 @@ const Footer: React.FC = () => {
   ];
   
   const propertyLinks = [
-    { label: 'All properties', href: '/properties' },
-    { label: 'Houses for sale', href: '/properties/sale' },
-    { label: 'Houses for rent', href: '/properties/rent' }
+    { label: 'All properties', href: '/gallery' },
+    { label: 'Houses for sale', href: '/gallery' },
+    { label: 'Houses for rent', href: '/gallery' }
   ];
   
   const newsLinks = [
