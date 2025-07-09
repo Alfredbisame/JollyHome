@@ -1,11 +1,14 @@
 'use client';
 
 import { motion, Variants } from 'framer-motion';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { CommunityShowcaseProps } from './types';
 import CommunityImage from './CommunityImage';
 import CommunityContent from './CommunityContent';
 import CommunityStats from './CommunityStats';
 import CommunityAmenities from './CommunityAmenities';
+import ScheduleVisitModal from './ScheduleVisitModal';
 
 const CommunityShowcase: React.FC<CommunityShowcaseProps> = ({
   community,
@@ -13,6 +16,21 @@ const CommunityShowcase: React.FC<CommunityShowcaseProps> = ({
   onLearnMore,
   onViewProperties
 }) => {
+  const router = useRouter();
+  const [isScheduleModalOpen, setIsScheduleModalOpen] = useState(false);
+
+  const handleViewProperties = () => {
+    router.push('/gallery');
+  };
+
+  const handleScheduleVisit = () => {
+    setIsScheduleModalOpen(true);
+  };
+
+  const handleCloseScheduleModal = () => {
+    setIsScheduleModalOpen(false);
+  };
+
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
@@ -136,7 +154,7 @@ const CommunityShowcase: React.FC<CommunityShowcaseProps> = ({
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <motion.button
-              onClick={onViewProperties}
+              onClick={handleViewProperties}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="bg-white text-emerald-600 font-semibold py-4 px-8 rounded-full hover:bg-emerald-50 transition-colors duration-200 shadow-lg cursor-pointer"
@@ -144,7 +162,7 @@ const CommunityShowcase: React.FC<CommunityShowcaseProps> = ({
               View Available Properties
             </motion.button>
             <motion.button
-              onClick={onLearnMore}
+              onClick={handleScheduleVisit}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="border-2 border-white text-white font-semibold py-4 px-8 rounded-full hover:bg-white hover:text-emerald-600 transition-colors duration-200 cursor-pointer"
@@ -154,6 +172,12 @@ const CommunityShowcase: React.FC<CommunityShowcaseProps> = ({
           </motion.div>
         </div>
       </motion.section>
+
+      {/* Schedule Visit Modal */}
+      <ScheduleVisitModal
+        isOpen={isScheduleModalOpen}
+        onClose={handleCloseScheduleModal}
+      />
     </div>
   );
 };

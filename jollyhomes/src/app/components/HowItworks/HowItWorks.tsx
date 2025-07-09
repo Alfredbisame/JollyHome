@@ -1,6 +1,7 @@
 'use client';
 
 import { motion, Variants } from 'framer-motion';
+import { useRouter } from 'next/navigation';
 import { HowItWorksProps, Step } from './types';
 import HowItWorksHeader from './HowItWorksHeader';
 import StepCard from './StepCard';
@@ -36,6 +37,12 @@ const HowItWorks: React.FC<HowItWorksProps> = ({
   steps = defaultSteps,
   className = ""
 }) => {
+  const router = useRouter();
+
+  const handleCTAClick = () => {
+    router.push('/gallery');
+  };
+
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
@@ -88,6 +95,7 @@ const HowItWorks: React.FC<HowItWorksProps> = ({
             }}
             whileTap={{ scale: 0.95 }}
             className="bg-gradient-to-r from-emerald-500 to-emerald-600 text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
+            onClick={handleCTAClick}
           >
             Start Your Journey Today
           </motion.button>

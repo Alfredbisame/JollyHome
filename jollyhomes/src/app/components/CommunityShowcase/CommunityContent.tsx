@@ -1,6 +1,7 @@
 'use client';
 
 import { motion, Variants } from 'framer-motion';
+import { useRouter } from 'next/navigation';
 import { CommunityContentProps } from './types';
 import { 
   MapPinIcon, 
@@ -15,6 +16,20 @@ const CommunityContent: React.FC<CommunityContentProps> = ({
   onLearnMore,
   onViewProperties
 }) => {
+  const router = useRouter();
+
+  const handleViewProperties = () => {
+    router.push('/gallery');
+  };
+
+  const handleContactSales = () => {
+    router.push('/contact');
+  };
+
+  const handleLearnMore = () => {
+    router.push('/about');
+  };
+
   const contentVariants: Variants = {
     hidden: { opacity: 0, x: 50 },
     visible: { 
@@ -179,7 +194,7 @@ const CommunityContent: React.FC<CommunityContentProps> = ({
       >
         <motion.button
           variants={itemVariants}
-          onClick={onViewProperties}
+          onClick={handleViewProperties}
           whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(16, 185, 129, 0.3)" }}
           whileTap={{ scale: 0.95 }}
           className="flex items-center justify-center space-x-2 bg-emerald-500 text-white font-semibold py-4 px-8 rounded-full hover:bg-emerald-600 transition-colors duration-200 shadow-lg group cursor-pointer"
@@ -187,10 +202,10 @@ const CommunityContent: React.FC<CommunityContentProps> = ({
           <span>View Properties</span>
           <ArrowRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
         </motion.button>
-
+        
         <motion.button
           variants={itemVariants}
-          onClick={onLearnMore}
+          onClick={handleLearnMore}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           className="flex items-center justify-center space-x-2 border-2 border-emerald-500 text-emerald-600 font-semibold py-4 px-8 rounded-full hover:bg-emerald-50 transition-colors duration-200 cursor-pointer"
@@ -209,7 +224,10 @@ const CommunityContent: React.FC<CommunityContentProps> = ({
       >
         <p className="text-slate-600 text-sm text-center">
           Need more information? 
-          <button className="text-emerald-600 font-semibold hover:text-emerald-700 ml-1 cursor-pointer">
+          <button 
+            onClick={handleContactSales}
+            className="text-emerald-600 font-semibold hover:text-emerald-700 ml-1 cursor-pointer"
+          >
             Contact our sales team
           </button>
         </p>

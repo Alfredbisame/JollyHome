@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
+import { useRouter } from 'next/navigation';
 import { Property } from './types';
 import PropertyListingHeader from './PropertyListingHeader';
 import PropertyStats from './PropertyStats';
@@ -123,6 +124,7 @@ const PropertyListing: React.FC<PropertyListingProps> = ({
   isLoading = false,
   itemsPerPage = 6
 }) => {
+  const router = useRouter();
   const [favorites, setFavorites] = useState<string[]>(favoriteProperties);
   const [currentPage, setCurrentPage] = useState(1);
   const [filters, setFilters] = useState<FilterState>({
@@ -191,6 +193,14 @@ const PropertyListing: React.FC<PropertyListingProps> = ({
     setCurrentPage(page);
     // Scroll to top of property listing
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleContactClick = () => {
+    router.push('/contact');
+  };
+
+  const handleBrowseAllClick = () => {
+    router.push('/gallery');
   };
 
   // Calculate stats
@@ -328,6 +338,7 @@ const PropertyListing: React.FC<PropertyListingProps> = ({
                 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-emerald-500 text-white font-semibold py-3 px-8 rounded-full hover:bg-emerald-600 transition-colors duration-200 shadow-lg cursor-pointer"
+                onClick={handleContactClick}
               >
                 Contact Our Agents
               </motion.button>
@@ -335,6 +346,7 @@ const PropertyListing: React.FC<PropertyListingProps> = ({
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="border-2 border-emerald-500 text-emerald-600 font-semibold py-3 px-8 rounded-full hover:bg-emerald-50 transition-colors duration-200 cursor-pointer"
+                onClick={handleBrowseAllClick}
               >
                 Browse All Properties
               </motion.button>
