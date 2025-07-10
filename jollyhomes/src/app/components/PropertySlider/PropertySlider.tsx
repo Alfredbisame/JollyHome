@@ -165,7 +165,7 @@ const PropertySlider: React.FC<PropertySliderProps> = ({
 
   return (
     <div 
-      className={`relative h-[30vh] sm:h-[40vh] md:h-[50vh] lg:h-[60vh] xl:h-[65vh] bg-gradient-to-t from-slate-800 to-transparent overflow-hidden ${className}`}
+      className={`relative h-[40vh] sm:h-[50vh] md:h-[60vh] lg:h-[65vh] xl:h-[70vh] bg-gradient-to-t from-slate-800 to-transparent overflow-hidden ${className}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >

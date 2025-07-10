@@ -18,12 +18,11 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
   isFavorite = false
 }) => {
   const formatPrice = (price: number, currency: string) => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: currency === '$' ? 'USD' : 'USD',
+    // Always use Ghanaian cedis (₵) for formatting
+    return `₵${price.toLocaleString('en-GH', {
       minimumFractionDigits: 0,
       maximumFractionDigits: 0,
-    }).format(price);
+    })}`;
   };
 
   const getStatusStyles = (status: string) => {
@@ -86,8 +85,17 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
         delay: 0.2,
         ease: "easeOut"
       }}
-      className="bg-white rounded-lg shadow-lg p-6 max-w-md w-full backdrop-blur-sm"
+      className="bg-white rounded-lg shadow-lg p-3 sm:p-4 md:p-6 max-w-xs sm:max-w-sm md:max-w-md w-full backdrop-blur-sm flex flex-col"
     >
+      {/* Property Image (mobile-first) */}
+      <div className="relative w-full h-40 sm:h-48 md:h-56 rounded-lg overflow-hidden mb-4">
+        <img
+          src={property.image}
+          alt={property.title}
+          className="object-cover w-full h-full"
+          loading="lazy"
+        />
+      </div>
       <motion.div
         variants={containerVariants}
         initial="initial"
@@ -101,10 +109,10 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
         <motion.div 
           variants={contentVariants}
           transition={{ duration: 0.4, ease: "easeOut" }}
-          className="flex space-x-3 mb-4"
+          className="flex flex-wrap gap-2 mb-3"
         >
           <button
-            className={`text-xs font-semibold rounded px-4 py-1 ${getStatusStyles(property.status)}`}
+            className={`text-xs font-semibold rounded px-3 py-1 ${getStatusStyles(property.status)}`}
             disabled={property.status === 'For Sale'}
           >
             {property.status}
@@ -120,7 +128,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
         <motion.h3 
           variants={contentVariants}
           transition={{ duration: 0.4, ease: "easeOut" }}
-          className="font-bold text-gray-900 text-base mb-2 line-clamp-2"
+          className="font-bold text-gray-900 text-base sm:text-lg mb-1 line-clamp-2"
         >
           {property.title}
         </motion.h3>
@@ -129,9 +137,9 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
         <motion.div 
           variants={contentVariants}
           transition={{ duration: 0.4, ease: "easeOut" }}
-          className="flex items-center text-gray-500 text-xs mb-4 space-x-1"
+          className="flex items-center text-gray-500 text-xs sm:text-sm mb-3 gap-1"
         >
-          <MapPinIcon className="w-3 h-3" />
+          <MapPinIcon className="w-3 h-3 sm:w-4 sm:h-4" />
           <span className="capitalize">{property.location}</span>
         </motion.div>
 
@@ -139,7 +147,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
         <motion.div 
           variants={contentVariants}
           transition={{ duration: 0.4, ease: "easeOut" }}
-          className="flex justify-between text-gray-600 text-xs mb-6"
+          className="flex flex-wrap justify-between text-gray-600 text-xs sm:text-sm mb-4 gap-y-1"
         >
           <span>Beds: {property.beds}</span>
           <span>Bath: {property.baths}</span>
@@ -150,9 +158,9 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
         <motion.div 
           variants={contentVariants}
           transition={{ duration: 0.4, ease: "easeOut" }}
-          className="flex items-center justify-between mb-6"
+          className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 gap-2"
         >
-          <span className="text-emerald-500 font-semibold text-lg">
+          <span className="text-emerald-500 font-semibold text-lg sm:text-xl">
             {formatPrice(property.price, property.currency)}
           </span>
           <div className="flex space-x-2">
@@ -190,7 +198,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
           variants={contentVariants}
           transition={{ duration: 0.4, ease: "easeOut" }}
           onClick={() => onViewDetails(property)}
-          className="w-full bg-emerald-500 text-white text-sm font-semibold rounded px-5 py-3 hover:bg-emerald-600 transition-colors flex items-center justify-center cursor-pointer group"
+          className="w-full bg-emerald-500 text-white text-sm sm:text-base font-semibold rounded px-4 py-3 hover:bg-emerald-600 transition-colors flex items-center justify-center cursor-pointer group"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
