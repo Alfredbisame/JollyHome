@@ -8,6 +8,7 @@ import {
   PhoneIcon,
   MapPinIcon 
 } from '@heroicons/react/24/outline';
+import { FaXTwitter, FaTiktok } from 'react-icons/fa6';
 
 const ContactInfo: React.FC<ContactInfoProps> = ({ items }) => {
   const getIcon = (iconName: string) => {
@@ -37,17 +38,9 @@ const ContactInfo: React.FC<ContactInfoProps> = ({ items }) => {
         </svg>
       );
     case 'twitter':
-      return (
-        <svg {...iconProps}>
-          <path d="M23.44 4.83c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C19.5 3.95 18.44 3.5 17.3 3.5c-1.27 0-2.43.49-3.29 1.29-1.27.78-2.15 2.05-2.15 3.44 0 .26.03.52.09.76C8.26 8.39 5.5 6.85 3.8 4.55c-.9.77-1.44 1.75-1.44 2.86 0 1.11.5 2.1 1.25 2.76-.83-.03-1.6-.2-2.25-.6v.06c0 1.56.73 2.77 1.7 3.45-.68-.03-1.3-.2-1.83-.49v.02c0 2.15 1.52 3.93 3.53 4.34-.37.1-.75.14-1.13.14-.27 0-.55-.02-.82-.07.56 1.7 2.18 2.92 4.08 2.96A8.51 4.52 0 0 1 2 19.92a12.04 4.52 0 0 0 6.62-2.1c-.38.48-.8 1-1.3 1.42C4.66 19.37 3.6 20 2.45 20c-.5 0-.99-.05-1.48-.15 1.1 1.1 2.46 1.77 3.95 1.95v2.33c-1.58-.3-3.06-1.1-4.25-2.15 1.24.23 2.53.37 3.84.37 11.6 0 17.96-9.6 17.96-17.96 0-.27-.01-.54-.02-.81.72-.52 1.35-1.17 1.86-1.9z" fill="currentColor" />
-        </svg>
-      );
-    case 'instagram':
-      return (
-        <svg {...iconProps}>
-          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.14 4.771 1.691 4.912 4.913.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.14 3.222-1.66 4.771-4.912 4.913-1.266.058-1.645.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.14-4.771-1.699-4.913-4.913-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.139-3.227 1.66-4.771 4.912-4.913 1.266-.057 1.645-.069 4.85-.069zM12 0C8.74 0 8.333.014 7.053.06 2.725.222 0 2.71 0 7.052c0 4.343.222 6.831 2.71 7.053 1.281.046 1.688.06 4.947.06 3.26 0 3.666-.014 4.947-.06 4.342-.222 6.83-2.71 6.83-7.053 0-4.342-.222-6.83-2.71-7.052C13.666.014 13.26 0 12 0zm0 5.838a6.162 6.162 0 1 1 0 12.324 6.162 6.162 0 0 1 0-12.324zM12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" fill="currentColor" />
-        </svg>
-      );
+      return <FaXTwitter className="w-5 h-5" />;
+    case 'tiktok':
+      return <FaTiktok className="w-5 h-5" />;
     case 'linkedin':
       return (
         <svg {...iconProps}>
@@ -164,15 +157,22 @@ const ContactInfo: React.FC<ContactInfoProps> = ({ items }) => {
 >
   <p className="text-sm text-gray-600 mb-3">Follow us on social media:</p>
   <div className="flex gap-3">
-    {['facebook', 'twitter', 'instagram', 'linkedin'].map((social) => (
+    {[
+      { name: 'facebook', url: 'https://www.facebook.com/profile.php?id=61559349307416&mibextid=wwXIfr&mibextid=wwXIfr' },
+      { name: 'twitter', url: '#' },
+      { name: 'tiktok', url: 'https://www.tiktok.com/@jollyhomes7?_t=ZM-8xuNtRE97xd&_r=1' },
+      { name: 'linkedin', url: '#' }
+    ].map((social) => (
       <motion.a
-        key={social}
-        href={`#${social}`}
+        key={social.name}
+        href={social.url}
         className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-emerald-500 hover:text-white transition-all duration-300"
         whileHover={{ scale: 1.1, rotate: 5 }}
         whileTap={{ scale: 0.9 }}
+        target="_blank"
+        rel="noopener noreferrer"
       >
-        {getSocialIcon(social)}
+        {getSocialIcon(social.name)}
       </motion.a>
     ))}
   </div>
