@@ -20,11 +20,11 @@ const HomePage = () => {
     console.log('View properties clicked');
   };
   
-    const handleAgentSignup = () => {
-    // Handle signup logic here
-    // Could open a modal, navigate to signup page, etc.
-    console.log('Opening agent signup form...');
-  };
+  //   const handleAgentSignup = () => {
+  //   // Handle signup logic here
+  //   // Could open a modal, navigate to signup page, etc.
+  //   console.log('Opening agent signup form...');
+  // };
   
   return (
     <div>
@@ -50,7 +50,7 @@ const HomePage = () => {
         onViewProperties={handleViewProperties}
       />
 
-      <AgentSignupBanner onSignupClick={handleAgentSignup} />
+      <AgentSignupBanner />
       
       {/* Test Wishlist Section */}
       <div className="bg-gray-50 py-12">

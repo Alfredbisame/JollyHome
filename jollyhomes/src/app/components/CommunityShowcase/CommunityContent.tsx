@@ -13,8 +13,6 @@ import {
 
 const CommunityContent: React.FC<CommunityContentProps> = ({
   community,
-  onLearnMore,
-  onViewProperties
 }) => {
   const router = useRouter();
 

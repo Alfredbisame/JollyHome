@@ -5,12 +5,10 @@ import { AgentSignupContent } from './AgentSignupContent';
 import { AgentSignupButton } from './AgentSignupButton';
 
 interface AgentSignupBannerProps {
-  onSignupClick?: () => void;
   className?: string;
 }
 
 const AgentSignupBanner: React.FC<AgentSignupBannerProps> = ({
-  onSignupClick,
   className = ""
 }) => {
   const containerVariants: Variants = {
