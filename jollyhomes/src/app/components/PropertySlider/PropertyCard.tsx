@@ -8,16 +8,16 @@ import {
   // ArrowPathIcon,
   ChevronRightIcon 
 } from '@heroicons/react/24/outline';
+import Image from 'next/image';
 import { HeartIcon as HeartSolidIcon } from '@heroicons/react/24/solid';
 
-const PropertyCard: React.FC<PropertyCardProps> = ({
+const PropertyCard: React.FC<Omit<PropertyCardProps, 'onShuffle'>> = ({
   property,
   onViewDetails,
   onToggleFavorite,
-  onShuffle,
   isFavorite = false
 }) => {
-  const formatPrice = (price: number, currency: string) => {
+  const formatPrice = (price: number) => {
     // Always use Ghanaian cedis (₵) for formatting
     return `₵${price.toLocaleString('en-GH', {
       minimumFractionDigits: 0,
@@ -89,11 +89,13 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
     >
       {/* Property Image (mobile-first) */}
       <div className="relative w-full h-20 sm:h-32 md:h-48 rounded-lg overflow-hidden mb-2">
-        <img
+        <Image
           src={property.image}
           alt={property.title}
+          fill
           className="object-cover w-full h-full"
-          loading="lazy"
+          sizes="100vw"
+          priority={false}
         />
       </div>
       <motion.div
@@ -161,7 +163,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
           className="flex items-center justify-between mb-2 gap-1"
         >
           <span className="text-emerald-500 font-semibold text-base sm:text-lg md:text-xl">
-            {formatPrice(property.price, property.currency)}
+            {formatPrice(property.price)}
           </span>
           <motion.button
             onClick={() => onToggleFavorite(property.id)}

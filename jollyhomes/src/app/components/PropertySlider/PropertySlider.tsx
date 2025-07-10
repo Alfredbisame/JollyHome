@@ -206,7 +206,6 @@ const PropertySlider: React.FC<PropertySliderProps> = ({
             property={currentProperty}
             onViewDetails={handleViewDetails}
             onToggleFavorite={handleToggleFavorite}
-            onShuffle={handleShuffle}
             isFavorite={favorites.includes(currentProperty.id)}
           />
         </AnimatePresence>
