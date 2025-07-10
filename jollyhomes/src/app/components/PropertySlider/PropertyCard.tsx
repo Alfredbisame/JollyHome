@@ -5,7 +5,7 @@ import { PropertyCardProps } from './types';
 import { 
   MapPinIcon, 
   HeartIcon, 
-  ArrowPathIcon,
+  // ArrowPathIcon,
   ChevronRightIcon 
 } from '@heroicons/react/24/outline';
 import { HeartIcon as HeartSolidIcon } from '@heroicons/react/24/solid';
@@ -85,10 +85,10 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
         delay: 0.2,
         ease: "easeOut"
       }}
-      className="bg-white rounded-lg shadow-lg p-3 sm:p-4 md:p-6 max-w-xs sm:max-w-sm md:max-w-md w-full backdrop-blur-sm flex flex-col"
+      className="bg-white rounded-lg shadow-lg p-1 sm:p-2 md:p-4 max-w-[95vw] sm:max-w-sm md:max-w-md w-full backdrop-blur-sm flex flex-col"
     >
       {/* Property Image (mobile-first) */}
-      <div className="relative w-full h-40 sm:h-48 md:h-56 rounded-lg overflow-hidden mb-4">
+      <div className="relative w-full h-20 sm:h-32 md:h-48 rounded-lg overflow-hidden mb-2">
         <img
           src={property.image}
           alt={property.title}
@@ -109,7 +109,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
         <motion.div 
           variants={contentVariants}
           transition={{ duration: 0.4, ease: "easeOut" }}
-          className="flex flex-wrap gap-2 mb-3"
+          className="flex flex-wrap gap-1 mb-2"
         >
           <button
             className={`text-xs font-semibold rounded px-3 py-1 ${getStatusStyles(property.status)}`}
@@ -128,7 +128,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
         <motion.h3 
           variants={contentVariants}
           transition={{ duration: 0.4, ease: "easeOut" }}
-          className="font-bold text-gray-900 text-base sm:text-lg mb-1 line-clamp-2"
+          className="font-bold text-gray-900 text-xs sm:text-sm md:text-base lg:text-lg mb-1 line-clamp-2"
         >
           {property.title}
         </motion.h3>
@@ -137,7 +137,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
         <motion.div 
           variants={contentVariants}
           transition={{ duration: 0.4, ease: "easeOut" }}
-          className="flex items-center text-gray-500 text-xs sm:text-sm mb-3 gap-1"
+          className="flex items-center text-gray-500 text-[10px] sm:text-xs md:text-sm mb-2 gap-1"
         >
           <MapPinIcon className="w-3 h-3 sm:w-4 sm:h-4" />
           <span className="capitalize">{property.location}</span>
@@ -147,7 +147,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
         <motion.div 
           variants={contentVariants}
           transition={{ duration: 0.4, ease: "easeOut" }}
-          className="flex flex-wrap justify-between text-gray-600 text-xs sm:text-sm mb-4 gap-y-1"
+          className="flex flex-wrap justify-between text-gray-600 text-[10px] sm:text-xs md:text-sm mb-2 gap-y-1"
         >
           <span>Beds: {property.beds}</span>
           <span>Bath: {property.baths}</span>
@@ -158,39 +158,28 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
         <motion.div 
           variants={contentVariants}
           transition={{ duration: 0.4, ease: "easeOut" }}
-          className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 gap-2"
+          className="flex items-center justify-between mb-2 gap-1"
         >
-          <span className="text-emerald-500 font-semibold text-lg sm:text-xl">
+          <span className="text-emerald-500 font-semibold text-base sm:text-lg md:text-xl">
             {formatPrice(property.price, property.currency)}
           </span>
-          <div className="flex space-x-2">
-            <motion.button
-              onClick={onShuffle}
-              aria-label="Shuffle"
-              className="p-2 rounded border border-gray-200 text-gray-400 hover:text-gray-600 hover:border-gray-300 transition-colors"
-              whileHover={{ scale: 1.05, rotate: 180 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <ArrowPathIcon className="w-4 h-4" />
-            </motion.button>
-            <motion.button
-              onClick={() => onToggleFavorite(property.id)}
-              aria-label="Favorite"
-              className={`p-2 rounded border transition-colors ${
-                isFavorite
-                  ? 'border-red-300 text-red-500 hover:border-red-400'
-                  : 'border-gray-200 text-gray-400 hover:text-gray-600 hover:border-gray-300'
-              }`}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {isFavorite ? (
-                <HeartSolidIcon className="w-4 h-4" />
-              ) : (
-                <HeartIcon className="w-4 h-4" />
-              )}
-            </motion.button>
-          </div>
+          <motion.button
+            onClick={() => onToggleFavorite(property.id)}
+            aria-label="Favorite"
+            className={`p-2 rounded border transition-colors ${
+              isFavorite
+                ? 'border-red-300 text-red-500 hover:border-red-400'
+                : 'border-gray-200 text-gray-400 hover:text-gray-600 hover:border-gray-300'
+            }`}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            {isFavorite ? (
+              <HeartSolidIcon className="w-4 h-4" />
+            ) : (
+              <HeartIcon className="w-4 h-4" />
+            )}
+          </motion.button>
         </motion.div>
 
         {/* View Details Button */}
@@ -198,7 +187,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
           variants={contentVariants}
           transition={{ duration: 0.4, ease: "easeOut" }}
           onClick={() => onViewDetails(property)}
-          className="w-full bg-emerald-500 text-white text-sm sm:text-base font-semibold rounded px-4 py-3 hover:bg-emerald-600 transition-colors flex items-center justify-center cursor-pointer group"
+          className="w-full bg-emerald-500 text-white text-xs sm:text-sm md:text-base font-semibold rounded px-3 py-2 hover:bg-emerald-600 transition-colors flex items-center justify-center cursor-pointer group"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
