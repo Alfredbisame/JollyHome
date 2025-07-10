@@ -8,7 +8,8 @@ import {
   PhoneIcon,
   MapPinIcon 
 } from '@heroicons/react/24/outline';
-import { FaXTwitter, FaTiktok } from 'react-icons/fa6';
+import { FaXTwitter, FaTiktok, FaYoutube } from 'react-icons/fa6';
+import { FaInstagram } from 'react-icons/fa';
 
 const ContactInfo: React.FC<ContactInfoProps> = ({ items }) => {
   const getIcon = (iconName: string) => {
@@ -41,12 +42,10 @@ const ContactInfo: React.FC<ContactInfoProps> = ({ items }) => {
       return <FaXTwitter className="w-5 h-5" />;
     case 'tiktok':
       return <FaTiktok className="w-5 h-5" />;
-    case 'linkedin':
-      return (
-        <svg {...iconProps}>
-          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.962 0-1.74-.79-1.74-1.764s.779-1.764 1.74-1.764 1.74.79 1.74 1.764-.778 1.764-1.74 1.764zm13.5 12.268h-3v-5.604c0-3.368-4.019-3.073-4.019 0v5.604h-3v-11h3v1.765c1.276-2.546 5.686-2.777 6.223 0l.574 5.345v.49h-.008z" fill="currentColor" />
-        </svg>
-      );
+    case 'youtube':
+      return <FaYoutube className="w-5 h-5" />;
+    case 'instagram':
+      return <FaInstagram className="w-5 h-5" />;
     default:
       return null;
   }
@@ -161,7 +160,8 @@ const ContactInfo: React.FC<ContactInfoProps> = ({ items }) => {
       { name: 'facebook', url: 'https://www.facebook.com/profile.php?id=61559349307416&mibextid=wwXIfr&mibextid=wwXIfr' },
       { name: 'twitter', url: '#' },
       { name: 'tiktok', url: 'https://www.tiktok.com/@jollyhomes7?_t=ZM-8xuNtRE97xd&_r=1' },
-      { name: 'linkedin', url: '#' }
+      { name: 'youtube', url: 'https://youtube.com/@jollybhomes-gh?si=ehiZhycINCM4VkZj' },
+      { name: 'instagram', url: 'https://www.instagram.com/jollyhomes7?igsh=ZXV2OXhsdmJ6dTg2' }
     ].map((social) => (
       <motion.a
         key={social.name}
