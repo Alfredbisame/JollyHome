@@ -42,7 +42,7 @@ const defaultProperties: Property[] = [
     baths: 4,
     sqft: 223,
     location: 'Greater Accra, Oyarifa',
-    image: 'https://storage.googleapis.com/a1aa/image/5f7eeb7a-4beb-4041-9fc8-6faf18c1b8aa.jpg',
+    image: '/prop2.jpg',
     featured: true,
     description: 'Beautiful modern home with spacious rooms and premium finishes.'
   },
@@ -56,7 +56,7 @@ const defaultProperties: Property[] = [
     baths: 5,
     sqft: 223,
     location: 'Greater Accra, Oyarifa',
-    image: 'https://storage.googleapis.com/a1aa/image/af1c6f19-1521-476b-4404-cefb81776363.jpg',
+    image: '/prop6.jpg',
     description: 'Luxurious family home with modern amenities and elegant design.'
   },
   {
@@ -82,7 +82,7 @@ const defaultProperties: Property[] = [
     baths: 6,
     sqft: 350,
     location: 'Kumasi',
-    image: 'https://storage.googleapis.com/a1aa/image/5f7eeb7a-4beb-4041-9fc8-6faf18c1b8aa.jpg',
+    image: '/prop4.jpg',
     featured: true,
     description: 'Luxury estate with premium amenities and spacious layout.'
   },
@@ -96,7 +96,7 @@ const defaultProperties: Property[] = [
     baths: 3,
     sqft: 200,
     location: 'Tema',
-    image: 'https://storage.googleapis.com/a1aa/image/af1c6f19-1521-476b-4404-cefb81776363.jpg',
+    image: '/prop5.jpg',
     description: 'Modern rental property in prime location.'
   },
   {
@@ -109,7 +109,7 @@ const defaultProperties: Property[] = [
     baths: 4,
     sqft: 280,
     location: 'Greater Accra, Oyarifa',
-    image: 'https://storage.googleapis.com/a1aa/image/6051b499-bd76-46c7-22ec-1de59323324e.jpg',
+    image: '/prop4.jpg',
     description: 'Recently sold premium family home.'
   }
 ];
