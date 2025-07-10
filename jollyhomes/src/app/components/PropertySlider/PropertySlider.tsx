@@ -58,13 +58,13 @@ const PropertySlider: React.FC<PropertySliderProps> = ({
         : [...prev, propertyId]
     );
   };
-
-  const handleShuffle = () => {
-    const randomIndex = Math.floor(Math.random() * properties.length);
-    setDirection(Math.random() > 0.5 ? 1 : -1);
-    setCurrentIndex(randomIndex);
-  };
-
+  
+  // const handleShuffle = () => {
+  //   const randomIndex = Math.floor(Math.random() * properties.length);
+  //   setDirection(Math.random() > 0.5 ? 1 : -1);
+  //   setCurrentIndex(randomIndex);
+  // };
+  
   const handleMouseEnter = () => {
     setIsAutoPlaying(false);
   };
